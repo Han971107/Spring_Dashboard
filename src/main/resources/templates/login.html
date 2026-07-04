@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+
+<style>
+    .layout {
+        width : 400px;
+        margin : 0 auto;
+        margin-top : 100px;
+    }
+
+    .layout h1 {
+        text-align : center;
+        margin-bottom : 30px;
+    }
+
+    .layout input {
+        width : 100%;
+        box-sizing : border-box;
+        padding : 10px;
+        margin-top : 10px;
+    }
+
+    .layout button {
+        width : 100%;
+        box-sizing : border-box;
+        padding : 10px;
+        margin-top : 20px;
+    }
+
+    .layout .links {
+        text-align : center;
+        margin-top : 15px;
+    }
+</style>
+
+<body>
+
+    <div class="layout">
+        <h1>로그인</h1>
+
+        <p th:if="${loginError}" th:text="${loginError}" style="color : red;"></p>
+
+        <form th:action="@{/login}" method="post">
+            <input name="username" type="text" placeholder="아이디">
+            <input name="password" type="password" placeholder="비밀번호">
+            <button type="submit">로그인</button>
+        </form>
+
+        <div class="links">
+            <a th:href="@{/join}">회원가입</a>
+        </div>
+    </div>
+
+</body>
+</html>

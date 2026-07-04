@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>메인 페이지</title>
+</head>
+
+<style>
+    * {
+        box-sizing : border-box;
+    }
+
+    body {
+        margin : 0;
+        font-family : 'Segoe UI', 'Malgun Gothic', sans-serif;
+        background : linear-gradient(135deg, #6a82fb 0%, #fc5c7d 100%);
+        min-height : 100vh;
+    }
+
+    .navbar {
+        display : flex;
+        justify-content : space-between;
+        align-items : center;
+        padding : 16px 40px;
+        background : rgba(255, 255, 255, 0.15);
+        backdrop-filter : blur(6px);
+    }
+
+    .navbar .logo {
+        color : #fff;
+        font-size : 22px;
+        font-weight : 700;
+        letter-spacing : 1px;
+    }
+
+    .navbar a {
+        color : #fff;
+        text-decoration : none;
+        margin-left : 20px;
+        font-size : 14px;
+        opacity : 0.9;
+    }
+
+    .navbar a:hover {
+        opacity : 1;
+        text-decoration : underline;
+    }
+
+    .hero {
+        text-align : center;
+        color : #fff;
+        padding : 80px 20px 40px;
+    }
+
+    .hero h1 {
+        font-size : 42px;
+        margin : 0 0 10px;
+    }
+
+    .hero p {
+        font-size : 16px;
+        opacity : 0.9;
+    }
+
+    .card-container {
+        max-width : 900px;
+        margin : 0 auto;
+        padding : 20px 20px 80px;
+        display : grid;
+        grid-template-columns : repeat(auto-fit, minmax(220px, 1fr));
+        gap : 24px;
+    }
+
+    .card {
+        background : #fff;
+        border-radius : 16px;
+        padding : 30px 20px;
+        text-align : center;
+        box-shadow : 0 10px 30px rgba(0, 0, 0, 0.15);
+        transition : transform 0.2s ease;
+    }
+
+    .card:hover {
+        transform : translateY(-6px);
+    }
+
+    .card .icon {
+        font-size : 36px;
+        margin-bottom : 12px;
+    }
+
+    .card h3 {
+        margin : 0 0 8px;
+        color : #333;
+    }
+
+    .card p {
+        color : #777;
+        font-size : 13px;
+        margin : 0 0 18px;
+    }
+
+    .card a {
+        display : inline-block;
+        padding : 8px 20px;
+        border-radius : 20px;
+        background : #6a82fb;
+        color : #fff;
+        text-decoration : none;
+        font-size : 13px;
+    }
+
+    .card a:hover {
+        background : #fc5c7d;
+    }
+</style>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">STUDY BOARD</div>
+        <div>
+            <a th:href="@{/board/list}">게시판</a>
+            <a th:href="@{/board/write}">글쓰기</a>
+            <a th:href="@{/login}">로그아웃</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>환영합니다 👋</h1>
+        <p>로그인에 성공했습니다. 오늘도 좋은 하루 되세요!</p>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>게시판</h3>
+            <p>등록된 글 목록을 확인해보세요.</p>
+            <a th:href="@{/board/list}">바로가기</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">✏️</div>
+            <h3>글쓰기</h3>
+            <p>새로운 소식을 공유해보세요.</p>
+            <a th:href="@{/board/write}">바로가기</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">👤</div>
+            <h3>마이페이지</h3>
+            <p>내 정보를 관리해보세요.</p>
+            <a th:href="@{/main}">준비중</a>
+        </div>
+    </div>
+
+</body>
+</html>
